@@ -6,11 +6,23 @@
         <param name="param_file" value="$(find orne_bringup)/config/ypspur/gamma.param"/>
         <param name="port" value="$(arg ypspur_serial_port)"/>
     </node>
+    <!-- load urdf-->
+    <include file="$(find orne_bringup)/launch/includes/description.launch.xml">
+        <arg name="robot_name" value="gamma"/>
+    </include>
 
-    <include file="$(find orne_bringup)/launch/includes/description.launch.xml"/>
+    <!--bringup joy_con-->
     <include file="$(find orne_bringup)/launch/includes/teleop_joy.launch"/>
-    <include file="$(find orne_bringup)/launch/includes/robot_localization.launch"/>
-    <include file="$(find orne_bringup)/launch/includes/urg.launch"/>
+    <!-- <include file="$(find orne_bringup)/launch/includes/robot_localization.launch"/> -->
+
+     <!--bringup urg-->
+    <include file="$(find orne_bringup)/launch/includes/urg.launch">
+    <arg name="scan_topic"          default="/scan"/>
+    <arg name="use_eth_urg" default="false"/>
+    <arg name="scan_dev" default="hokuyo"/>
+    </include>
+
+    <!--bringup imu-->
     <!-- <include file="$(find orne_bringup)/launch/includes/adis16465.launch"/> -->
     <!-- <node pkg="orne_bringup" type="projected_transform_publisher_node" name="projected_transform_publisher" output="$(arg output)">
     </node-->
