@@ -23,7 +23,7 @@
   <link name="base_link">
     <visual>
       <!-- <origin xyz="-0.15 0 0.1" rpy="0 0 0"/> -->
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
 	    <box size=".485 .43 .15"/>
       </geometry>
@@ -31,7 +31,7 @@
     </visual>
     <collision name="collision">
       <!-- <origin xyz="-0.15 0 0.1" rpy="0 0 0"/> -->
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
 	    <box size=".485 .43 .15"/>
       </geometry>

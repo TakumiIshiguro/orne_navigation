@@ -16,7 +16,7 @@
       <robotNamespace>orne_gamma</robotNamespace>
       <commandTopic>/cmd_vel</commandTopic>
       <odometryTopic>/odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
+      <odometryFrame>/odom</odometryFrame>
       <odometrySource>world</odometrySource>
       <publishOdomTF>true</publishOdomTF>
       <robotBaseFrame>base_footprint</robotBaseFrame>
@@ -38,7 +38,7 @@
 
   <!-- Base Link -->
   <gazebo reference="base_link">
-    <material>Gazebo/Black</material>
+    <!-- <material>Gazebo/Black</material> -->
   </gazebo>
 
   <!-- Left Wheel -->
@@ -91,8 +91,10 @@
           <horizontal>
             <samples>720</samples>
             <resolution>1</resolution>
-            <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle>
+            <!-- <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle> -->
+            <min_angle>-2.356</min_angle>
+            <max_angle>2.356</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -125,8 +127,8 @@
       <always_on>true</always_on>
       <visualize>false</visualize>
       <camera>
-          <!-- <horizontal_fov>2.09</horizontal_fov> -->
-          <horizontal_fov>1.047</horizontal_fov>
+          <horizontal_fov>2.09</horizontal_fov>
+          <!-- <horizontal_fov>1.047</horizontal_fov> -->
           <image>
               <width>640</width>
               <height>480</height>
@@ -161,8 +163,8 @@
       <always_on>true</always_on>
       <visualize>false</visualize>
       <camera>
-          <!-- <horizontal_fov>2.09</horizontal_fov> -->
-          <horizontal_fov>1.047</horizontal_fov>
+          <horizontal_fov>2.09</horizontal_fov>
+          <!-- <horizontal_fov>1.047</horizontal_fov> -->
           <image>
               <width>640</width>
               <height>480</height>
@@ -196,8 +198,8 @@
       <always_on>true</always_on>
       <visualize>false</visualize>
       <camera>
-          <!-- <horizontal_fov>2.09</horizontal_fov> -->
-          <horizontal_fov>1.047</horizontal_fov>
+          <horizontal_fov>2.09</horizontal_fov>
+          <!-- <horizontal_fov>1.047</horizontal_fov> -->
           <image>
               <width>640</width>
               <height>480</height>
