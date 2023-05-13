@@ -8,7 +8,7 @@
     </node>
     <!-- load urdf-->
     <include file="$(find orne_bringup)/launch/includes/description.launch.xml">
-        <arg name="robot_name" value="gamma"/>
+        <arg name="model" value="gamma"/>
     </include>
 
     <!--bringup joy_con-->
@@ -20,6 +20,8 @@
     <arg name="scan_topic"          default="/scan"/>
     <arg name="use_eth_urg" default="false"/>
     <arg name="scan_dev" default="hokuyo"/>
+    <arg name="angle_min" default="-2.094"/>
+    <arg name="angle_max" default="2.094"/>
     </include>
 
     <!--bringup imu-->

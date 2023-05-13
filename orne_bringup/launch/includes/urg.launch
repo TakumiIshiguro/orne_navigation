@@ -6,6 +6,8 @@
   <arg name="use_eth_urg"         default="true"/>
   <arg name="urg_ip"              default="192.168.0.10" if="$(arg use_eth_urg)"/>
   <arg name="scan_dev"            default="/dev/sensors/hokuyo_urg" unless="$(arg use_eth_urg)"/>
+  <arg name="angle_min" default="-2.355"/>
+  <arg name="angle_max" default="2.355"/>
 
   <node pkg="urg_node" type="urg_node" name="urg_node">
     <remap from="scan" to="$(arg scan_topic)"/>
@@ -14,9 +16,7 @@
     <param name="serial_port" value="$(arg scan_dev)" unless="$(arg use_eth_urg)"/>
     <param name="publish_multiecho" value="false"/>
     
-    <param name="angle_min" value="-2.355"/>
-    <param name="angle_max" value="2.355"/>
-    <!-- <param name="angle_min" value="-1.57"/>
-    <param name="angle_max" value="1.57"/> -->
+    <param name="angle_min" value="$(arg angle_min)"/>
+    <param name="angle_max" value="$(arg angle_max)"/>
   </node>
 </launch>
