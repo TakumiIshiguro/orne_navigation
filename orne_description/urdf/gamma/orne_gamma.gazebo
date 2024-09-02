@@ -127,7 +127,7 @@
       <always_on>true</always_on>
       <visualize>false</visualize>
       <camera>
-          <horizontal_fov>2.62</horizontal_fov>
+          <horizontal_fov>2.45</horizontal_fov>
           <!-- <horizontal_fov>1.047</horizontal_fov> -->
           <image>
               <width>640</width>
@@ -144,11 +144,11 @@
               <stddev>0.007</stddev> 
           </noise>
           <distortion>
-              <k1>-0.50</k1>
-              <k2>0.24</k2>
-              <k3>0.1</k3>
-              <p1>-0.0005</p1>
-              <p2>-0.0001</p2>
+              <k1>-0.75</k1>
+              <k2>0.36</k2>
+              <k3>0.2</k3>
+              <p1>-0.001</p1>
+              <p2>-0.0002</p2>
               <center>0.5 0.5</center>
           </distortion>
       </camera>
@@ -176,7 +176,7 @@
       <always_on>true</always_on>
       <visualize>false</visualize>
       <camera>
-          <horizontal_fov>2.62</horizontal_fov>
+          <horizontal_fov>2.45</horizontal_fov>
           <!-- <horizontal_fov>1.047</horizontal_fov> -->
           <image>
               <width>640</width>
@@ -193,11 +193,11 @@
               <stddev>0.007</stddev> 
           </noise>
           <distortion>
-              <k1>-0.50</k1>
-              <k2>0.24</k2>
-              <k3>0.1</k3>
-              <p1>-0.0005</p1>
-              <p2>-0.0001</p2>
+              <k1>-0.75</k1>
+              <k2>0.36</k2>
+              <k3>0.2</k3>
+              <p1>-0.001</p1>
+              <p2>-0.0002</p2>
               <center>0.5 0.5</center>
           </distortion>
       </camera>
@@ -224,7 +224,7 @@
       <always_on>true</always_on>
       <visualize>false</visualize>
       <camera>
-          <horizontal_fov>2.62</horizontal_fov>
+          <horizontal_fov>2.45</horizontal_fov>
           <!-- <horizontal_fov>1.047</horizontal_fov> -->
           <image>
               <width>640</width>
@@ -241,11 +241,11 @@
               <stddev>0.007</stddev>
           </noise>
           <distortion>
-              <k1>-0.50</k1>
-              <k2>0.24</k2>
-              <k3>0.1</k3>
-              <p1>-0.0005</p1>
-              <p2>-0.0001</p2>
+              <k1>-0.75</k1>
+              <k2>0.36</k2>
+              <k3>0.2</k3>
+              <p1>-0.001</p1>
+              <p2>-0.0002</p2>
               <center>0.5 0.5</center>
           </distortion>
       </camera>
