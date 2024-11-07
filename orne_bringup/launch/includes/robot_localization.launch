@@ -8,13 +8,14 @@
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_node" output="$(arg output)">
     <rosparam>
         publish_acceleration: true
+        publish_tf: true 
+        base_link_frame: base_footprint
         print_diagnostics: true
         transform_time_offset: 0
         transform_timeout: 0
         two_d_mode: true
         sensor_timeout: 0.5
         frequency: 40
-        base_link_frame: base_footprint
         imu0: /imu_data
         imu0_config:  [false, false, false,
                        false, false, true,

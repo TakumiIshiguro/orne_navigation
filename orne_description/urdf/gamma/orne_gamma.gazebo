@@ -138,11 +138,11 @@
               <near>0.03</near>
               <far>100</far>
           </clip>
-          <noise>
+          <!-- <noise>
               <type>gaussian</type>
               <mean>0.0</mean>
-              <stddev>0.007</stddev> 
-          </noise>
+              <stddev>0.0007</stddev> 
+          </noise> -->
           <distortion>
               <k1>-0.75</k1>
               <k2>0.36</k2>
@@ -187,11 +187,11 @@
               <near>0.03</near>
               <far>100</far>
           </clip>
-          <noise>
+          <!-- <noise>
               <type>gaussian</type>
               <mean>0.0</mean>
-              <stddev>0.007</stddev> 
-          </noise>
+              <stddev>0.0007</stddev> 
+          </noise> -->
           <distortion>
               <k1>-0.75</k1>
               <k2>0.36</k2>
@@ -235,11 +235,11 @@
               <near>0.03</near>
               <far>100</far>
           </clip>
-          <noise>
+          <!-- <noise>
               <type>gaussian</type>
               <mean>0.0</mean>
-              <stddev>0.007</stddev>
-          </noise>
+              <stddev>0.0007</stddev>
+          </noise> -->
           <distortion>
               <k1>-0.75</k1>
               <k2>0.36</k2>

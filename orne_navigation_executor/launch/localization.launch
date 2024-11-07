@@ -8,18 +8,18 @@
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file).yaml"/>
 
-  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+  <!-- <node pkg="amcl" type="amcl" name="amcl" output="screen">
     <rosparam file="$(find orne_navigation_executor)/config/param/localization_params.yaml" command="load"/>
     <rosparam file="$(find orne_navigation_executor)/config/param/$(arg model)/localization_params_$(arg model).yaml" command="load"/>
     <rosparam file="$(arg init_pos_file)" command="load"/>
-  </node>
+  </node> -->
 
-   <!-- <include file="$(find emcl2)/launch/emcl2.launch">
+   <include file="$(find emcl2)/launch/emcl2.launch">
       <arg name="scan_topic"     default="scan"/>
       <arg name="initial_pose_x" default="-2.0"/>
       <arg name="initial_pose_y" default="-0.5"/>
       <arg name="initial_pose_a" default="0.0"/>
-   </include> -->
+   </include>
 
    <!-- <include file="$(find als_ros)/launch/mcl.launch">
    </include>  -->

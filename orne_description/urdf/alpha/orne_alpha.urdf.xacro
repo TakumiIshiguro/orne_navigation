@@ -36,7 +36,7 @@
     </visual>
 
     <collision>
-      <origin xyz="0.005 0 0.300" rpy="0 0 0"/>
+      <origin xyz="0.005 0 0.305" rpy="0 0 0"/>
       <geometry>
 	       <box size=".376 .40 .134"/>
       </geometry>
@@ -90,35 +90,17 @@
   
   <!-- Setting for levelly fixed 2D URG -->
   <xacro:sensor_hokuyo name="hokuyo" parent="base_link" size="0.05 0.05 0.05">
-      <origin xyz="0.212 0 0.375" rpy="0 0 0"/>
+      <origin xyz="0.212 0 0.2485" rpy="0 0 0"/>
   </xacro:sensor_hokuyo>
-
-  <!-- <link name="visual_left_wheel">
-    <visual name="visual">
-      <origin xyz="0 0.0 0" rpy="0 1.5707 1.5707"/>
-      <geometry>
-        <cylinder  length="0.03" radius="0.151"/>
-      </geometry>
-    </visual>
-  </link> -->
-
-  <!-- <joint type="fixed" name="visual_left_wheel_joint">
-    <origin xyz="-0.045 0.233 0.1518" rpy="0 0 0"/>
-    <child link="visual_left_wheel">visual_left_wheel</child>
-    <parent link="base_link">base_link</parent>
-    <axis xyz="0 1 0"/>
-  </joint> -->
 
   <link name="left_wheel">
     <collision name="collision">
-      <!-- <origin xyz="0 0.0 0" rpy="0 1.5707 1.5707"/> -->
       <origin xyz="0 0.0 0" rpy="0 0 0"/>
       <geometry>
          <cylinder  length="0.03" radius="0.151"/>
       </geometry>
     </collision>
     <visual name="visual">
-      <!-- <origin xyz="0 0.0 0" rpy="0 1.5707 1.5707"/> -->
       <origin xyz="0 0.0 0" rpy="0 0 0"/>
       <geometry>
         <cylinder  length="0.03" radius="0.151"/>
@@ -139,22 +121,7 @@
     <limit effort="100" velocity="100.0"  lower="-5000" upper="5000" />
   </joint>
 
-  <!-- <link name="visual_right_wheel">
-    <visual name="visual">
-      <origin xyz="0 0.0 0" rpy="0 1.5707 1.5707"/>
-      <geometry>
-        <cylinder  length="0.03" radius="0.151"/>
-      </geometry>
-    </visual>
-  </link> -->
-
-  <!-- <joint type="fixed" name="visual_right_wheel_joint">
-    <origin xyz="-0.045 -0.223 0.1518" rpy="0 0 0"/>
-    <child link="visual_right_wheel">visual_right_wheel</child>
-    <parent link="base_link">base_link</parent>
-    <axis xyz="0 1 0"/>
-  </joint> -->
-
+ 
   <link name="right_wheel">
     <collision name="collision">
       <!-- <origin xyz="0 0.0 0" rpy="0 1.5707 1.5707"/> -->

@@ -1,13 +1,7 @@
 <launch>
   <arg name ="output"    default="screen"/>
-  <arg name="model" default="gamma"/>
-  <arg name="urdf_file" default="$(find xacro)/xacro '$(find orne_description)/urdf/$(arg model)/orne_$(arg model).urdf.xacro'" />
+  <arg name="robot_name" default="alpha"/>
+  <arg name="urdf_file" default="$(find xacro)/xacro '$(find orne_description)/urdf/$(arg robot_name)/orne_$(arg robot_name).urdf.xacro'" />
   <param name="robot_description" command="$(arg urdf_file)" />
-  
-  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="$(arg output)">
-     <param name="publish_frequency" type="double" value="50.0" />
-  </node>
-
-  <!-- use real robot -->
-   <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="$(arg output)"/>
 </launch>
