@@ -21,14 +21,11 @@
     <rosparam file="$(find orne_navigation_executor)/config/param/move_base_params.yaml" command="load"/>
     
     <!--planner-->
-    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
-    <!-- <param name="base_global_planner" value="carrot_planner/CarrotPlanner"/> -->
-    <rosparam file="$(find orne_navigation_executor)/config/param/global_planner_params.yaml" command="load"/>
+    <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+    <rosparam file="$(find orne_navigation_executor)/config/param/global_planner_params.yaml" command="load"/> -->
 
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
-    <!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> -->
     <rosparam file="$(find orne_navigation_executor)/config/param/$(arg robot_name)/dwa_local_planner_params_$(arg robot_name).yaml" command="load"/>
-    <!-- <rosparam file="$(find orne_navigation_executor)/config/param/$(arg robot_name)/base_local_planner_params_$(arg robot_name).yaml" command="load"/> -->
     <rosparam file="$(find orne_navigation_executor)/config/param/recovery_params.yaml" command="load"/>
   </node>
 </launch>
