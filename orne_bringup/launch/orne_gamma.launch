@@ -1,17 +1,34 @@
 <launch>
-    <arg name="output" default="screen"/>
-    <arg name="ypspur_serial_port" default="/dev/sensors/icart-mini"/>
-    <node pkg="ypspur_ros" type="ypspur_ros" name="ypspur_ros" output="$(arg output)" respawn="true">
-        <rosparam command="load" file="$(find orne_bringup)/config/ypspur_ros.yaml" subst_value="true"/>
-        <param name="param_file" value="$(find orne_bringup)/config/ypspur/gamma.param"/>
-        <param name="port" value="$(arg ypspur_serial_port)"/>
+    <include file="$(find icart_mini_driver)/launch/icart_mini_drive.launch">
+        <arg name="model"    value="$(find xacro)/xacro.py '$(find orne_description)/urdf/gamma/orne_gamma.xacro'"/>
+        <arg name="scan_dev" value="/dev/sensors/hokuyo_H1205387"/>
+        <arg name="ypspur_params" value="$(find orne_bringup)/config/gamma.param"/>
+    </include>
+
+    <!-- <node pkg="urg_node" type="urg_node" name="urg_node_0">
+        <param name="frame_id" value="hokuyo_link" />
+        <param name="serial_port" value="/dev/sensors/hokuyo_H1205387"/>
+        <param name="publish_multiecho" value="false"/>
+        <param name="angle_min" value="-1.047"/>
+        <param name="angle_max" value="1.047"/>
+        <param name="publish_intensity" value="true"/>
+    </node> -->
+<!--
+    <include file="$(find orne_bringup)/launch/adis16465.launch"/>
+-->
+    <!-- <include file="$(find orne_bringup)/launch/includes/base.launch.xml"/> -->
+    <arg name="joy_config" default="elecom_joy" />
+    <arg name="joy_dev" default="/dev/input/js0" />
+    <arg name="cmd_vel" default="/icart_mini/cmd_vel"/>
+      
+    <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="dev" value="$(arg joy_dev)" />
+        <param name="deadzone" value="0.3" />
+        <param name="autorepeat_rate" value="20" />
     </node>
 
-    <include file="$(find orne_bringup)/launch/includes/description.launch.xml"/>
-    <include file="$(find orne_bringup)/launch/includes/teleop_joy.launch"/>
-    <include file="$(find orne_bringup)/launch/includes/robot_localization.launch"/>
-    <include file="$(find orne_bringup)/launch/includes/urg.launch"/>
-    <!-- <include file="$(find orne_bringup)/launch/includes/adis16465.launch"/> -->
-    <!-- <node pkg="orne_bringup" type="projected_transform_publisher_node" name="projected_transform_publisher" output="$(arg output)">
-    </node-->
+    <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
+        <rosparam command="load" file="$(find icart_mini_driver)/config/$(arg joy_config).yaml" />
+        <remap from="cmd_vel" to="$(arg cmd_vel)"/>
+    </node>
 </launch>

@@ -222,7 +222,8 @@
   </transmission>
 
   <joint name="camera_joint" type="fixed">
-    <origin xyz="0.223 -0.011 0.565" rpy="0 0.124 0"/> 
+    <!-- <origin xyz="0.223 -0.011 0.565" rpy="0 0.124 0"/>  -->
+    <origin xyz="0.223 -0.011 0.394" rpy="0 0.124 0"/> 
     <parent link="base_link"/>
     <child link="camera_link"/>
   </joint>
