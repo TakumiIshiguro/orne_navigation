@@ -15,7 +15,7 @@ DWAPlannerROS:
   max_vel_theta: 1.0
   min_vel_theta: -1.0 #0.4
 
-  acc_lim_x: 2.8
+  acc_lim_x: 10.0
   acc_lim_y: 0.0
   acc_lim_theta: 5.0 #10.0
 
@@ -25,7 +25,7 @@ DWAPlannerROS:
   latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters
-  sim_time: 1.8
+  sim_time: 3 #2
   sim_granularity: 0.025
   angular_sim_granularity: 0.1
   vx_samples: 10

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="model"    default="alpha"/>
+  <arg name="robot_name"    default="alpha"/>
   <arg name="map_file"      default="$(find orne_navigation_executor)/config/maps/mymap"/>
   <arg name="init_pos_file" default="$(find orne_navigation_executor)/config/initial_pose_cfg/initial_pose.yaml"/>
   <arg name="mcl_pkg" default="amcl"/>
@@ -10,7 +10,7 @@
 
   <!-- <node pkg="amcl" type="amcl" name="amcl" output="screen">
     <rosparam file="$(find orne_navigation_executor)/config/param/localization_params.yaml" command="load"/>
-    <rosparam file="$(find orne_navigation_executor)/config/param/$(arg model)/localization_params_$(arg model).yaml" command="load"/>
+    <rosparam file="$(find orne_navigation_executor)/config/param/$(arg robot_name)/localization_params_$(arg robot_name).yaml" command="load"/>
     <rosparam file="$(arg init_pos_file)" command="load"/>
   </node> -->
 
