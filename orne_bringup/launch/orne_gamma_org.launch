@@ -12,8 +12,8 @@
     </include>
     
     <include file="$(find orne_bringup)/launch/includes/teleop_joy.launch"/>
-    <!-- <include file="$(find orne_bringup)/launch/includes/robot_localization.launch"/> -->
-    <!-- <include file="$(find urg_node)/launch/urg_lidar.launch"/> -->
+    <include file="$(find orne_bringup)/launch/includes/robot_localization.launch"/>
+    <include file="$(find orne_bringup)/launch/includes/urg.launch"/>
     <!-- <include file="$(find orne_bringup)/launch/includes/adis16465.launch"/> -->
     <!-- <node pkg="orne_bringup" type="projected_transform_publisher_node" name="projected_transform_publisher" output="$(arg output)">
     </node-->
