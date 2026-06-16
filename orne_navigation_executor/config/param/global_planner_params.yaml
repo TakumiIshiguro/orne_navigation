@@ -3,7 +3,7 @@ GlobalPlanner:
   default_tolerance: true
   visualize_potential: true
   # choice dijkstra (true) or a* (false)
-  use_dijkstra: false
+  use_dijkstra: true
   use_quadratic: true #true
   use_grid_path: true #false
 
