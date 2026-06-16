@@ -1,13 +1,13 @@
 DWAPlannerROS:
 
   max_vel_x: 0.2  # 0.55
-  min_vel_x: 0.0  #0.0 
+  min_vel_x: 0.18  # keep navigation speed close to 0.2 m/s
 
   max_vel_y: 0.0  # diff drive robot
   min_vel_y: 0.0  # diff drive robot
 
-  max_trans_vel: 0.5 # choose slightly less than the base's capability
-  min_trans_vel: 0.1  # this is the min trans velocity when there is negligible rotational velocity
+  max_trans_vel: 0.2 # choose slightly less than the base's capability
+  min_trans_vel: 0.18  # this is the min trans velocity when there is negligible rotational velocity
   trans_stopped_vel: 0.1
 
   # Warning!
