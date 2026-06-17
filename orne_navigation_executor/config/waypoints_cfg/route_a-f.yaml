@@ -15,13 +15,13 @@ waypoints:
         z: 1.92205e-06
         function: run
     - point:
-        x: -7.38778
-        y: -3.70881
-        z: -1.89265e-06
+        x: -7.47726
+        y: -4.18813
+        z: -1.65423e-06
         function: run_left_corner_left
     - point:
-        x: -2.91111
-        y: -3.68556
+        x: -2.94933
+        y: -4.25886
         z: -1.89265e-06
         function: run
     - point:
@@ -115,14 +115,14 @@ waypoints:
         z: -2.36949e-06
         function: run_go_3_way_left
     - point:
-        x: -2.92492
-        y: -3.70274
-        z: -8.09154e-06
+        x: -2.90452
+        y: -4.26827
+        z: -9.04521e-06
         function: run_right_corner_right
     - point:
-        x: -7.45957
-        y: -3.70542
-        z: -7.61469e-06
+        x: -7.54279
+        y: -4.17058
+        z: -7.37627e-06
         function: run
     - point:
         x: -10.11
@@ -260,13 +260,13 @@ waypoints:
         z: -8.56837e-06
         function: run_go_3_way_left
     - point:
-        x: -2.96969
-        y: -3.88949
-        z: -9.0452e-06
+        x: -2.8403
+        y: -4.29077
+        z: -9.99887e-06
         function: run_right_corner_right
     - point:
-        x: -7.33641
-        y: -3.79713
+        x: -7.50053
+        y: -4.21663
         z: -9.99888e-06
         function: run
     - point:
@@ -350,14 +350,14 @@ waypoints:
         z: 2.87572e-06
         function: run
     - point:
-        x: -7.32932
-        y: -3.66512
-        z: -9.38974e-07
+        x: -7.4907
+        y: -4.1941
+        z: -7.00555e-07
         function: run_left_corner_left
     - point:
-        x: -2.98325
-        y: -3.80085
-        z: -2.84632e-06
+        x: -2.95847
+        y: -4.25945
+        z: -3.32316e-06
         function: run
     - point:
         x: -0.434633
