@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="bag_file" doc="Absolute path to a bag containing scan, tf, and tf_static"/>
+  <arg name="map_file" default="/tmp/bag_map"
+       doc="Output path without .pgm/.yaml extension"/>
+
+  <arg name="scan_topic" default="/scan"/>
+  <arg name="odom_topic" default="/odom"/>
+  <arg name="base_frame" default="base_footprint"/>
+  <arg name="odom_frame" default="odom"/>
+  <arg name="map_frame" default="map"/>
+
+  <arg name="rate" default="1.0"/>
+  <arg name="play_delay" default="2.0"/>
+  <arg name="save_map" default="true"/>
+  <arg name="rviz" default="true"/>
+  <arg name="gmapping_config"
+       default="$(find orne_navigation_executor)/config/param/gmapping_bag.yaml"/>
+  <arg name="rviz_config"
+       default="$(find orne_navigation_executor)/config/rviz_cfg/slam_from_bag.rviz"/>
+
+  <param name="/use_sim_time" value="true"/>
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping"
+        output="screen">
+    <rosparam command="load" file="$(arg gmapping_config)"/>
+    <param name="base_frame" value="$(arg base_frame)"/>
+    <param name="odom_frame" value="$(arg odom_frame)"/>
+    <param name="map_frame" value="$(arg map_frame)"/>
+    <remap from="scan" to="$(arg scan_topic)"/>
+  </node>
+
+  <!-- Only replay mapping inputs. This avoids decoding the large camera topics
+       and prevents duplicate clock publishers. -->
+  <node pkg="rosbag" type="play" name="bag_player" output="screen"
+        args="--clock --delay=$(arg play_delay) --rate=$(arg rate)
+              $(arg bag_file) --topics
+              $(arg scan_topic) /tf /tf_static $(arg odom_topic)"/>
+
+  <node if="$(arg save_map)" pkg="orne_navigation_executor"
+        type="save_map_after_bag.py" name="save_map_after_bag"
+        output="screen" required="true">
+    <param name="bag_node" value="/bag_player"/>
+    <param name="map_topic" value="/map"/>
+    <param name="map_file" value="$(arg map_file)"/>
+  </node>
+
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="slam_from_bag_rviz"
+        args="-d $(arg rviz_config)" output="screen"/>
+</launch>

@@ -35,10 +35,30 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# install(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  scripts/save_map_after_bag.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(FILES
+  launch/slam_from_bag.launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
+
+install(FILES
+  config/param/gmapping_bag.yaml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config/param
+)
+
+install(FILES
+  config/rviz_cfg/slam_from_bag.rviz
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config/rviz_cfg
+)
+
+install(FILES
+  README_SLAM_FROM_BAG.md
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS orne_navigation_executor orne_navigation_executor_node
@@ -60,4 +80,3 @@ include_directories(
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
-
