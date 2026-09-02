@@ -2,11 +2,11 @@
 
 <launch>
   <arg name="model" default="alpha"/>
-  <arg name="map_file"   default="$(find orne_navigation_executor)/maps/mymap"/>
+  <arg name="costmap_file" default="$(find orne_navigation_executor)/config/maps/cit_3f_map_for_costmap"/>
   <arg name="odom_topic" default="/odometry/filtered"/>
   <arg name="cmd_vel_topic"    default="/cmd_vel"/>
 
-  <node name="map_server_for_costmap" pkg="map_server" type="map_server" args="$(arg map_file)_for_costmap.yaml">
+  <node name="map_server_for_costmap" pkg="map_server" type="map_server" args="$(arg costmap_file).yaml">
     <remap from="/map" to="/map_for_costmap"/>
     <param name="frame_id" value="map"/>
   </node>
@@ -14,7 +14,6 @@
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <remap from="/odom" to="$(arg odom_topic)"/>
     <remap from="/cmd_vel" to="$(arg cmd_vel_topic)"/>
-    <remap from="/map_for_costmap" to="/map"/>
     <rosparam file="$(find orne_navigation_executor)/config/param/$(arg model)/costmap_common_params_$(arg model).yaml" command="load" ns="global_costmap"/>
     <rosparam file="$(find orne_navigation_executor)/config/param/global_costmap_params.yaml" command="load" ns="global_costmap"/>
     <rosparam file="$(find orne_navigation_executor)/config/param/$(arg model)/costmap_common_params_$(arg model).yaml" command="load" ns="local_costmap"/>
