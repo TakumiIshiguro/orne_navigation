@@ -3,18 +3,23 @@
 <launch>
   <arg name="model" default="gamma"/>
   <arg name="map_file" default="$(find orne_navigation_executor)/config/maps/cit_3f_map"/>
-  <arg name="waypoints_file" default="$(find orne_navigation_executor)/config/waypoints_cfg/route_a-f.yaml"/>
+  <arg name="costmap_file" default="$(find orne_navigation_executor)/config/maps/cit_3f_map_for_costmap"/>
+  <!-- <arg name="waypoints_file" default="$(find orne_navigation_executor)/config/waypoints_cfg/route_a-f.yaml"/> -->
+  <!-- <arg name="waypoints_file" default="$(find orne_navigation_executor)/config/waypoints_cfg/route_g.yaml"/> -->
+  <arg name="waypoints_file" default="$(find orne_navigation_executor)/config/waypoints_cfg/route_n.yaml"/>
   <arg name="dist_err" default="0.8"/>
+  <arg name="max_update_rate" default="10.0"/>
+  <arg name="target_loop_count" default="1"/>
   <arg name="scan_topic" default="/scan"/>
   <arg name="odom_topic" default="/odom"/>
   <arg name="cmd_vel" default="/cmd_vel"/>
-  <arg name="initial_pose_x" default="2.5"/>
-  <arg name="initial_pose_y" default="0.5"/>
-  <arg name="initial_pose_a" default="0.0"/>
+  <arg name="initial_pose_x" default="-5" />
+  <arg name="initial_pose_y" default="7.7" />
+  <arg name="initial_pose_a" default="3.14" />
 
   <include file="$(find orne_navigation_executor)/launch/move_base.launch">
     <arg name="model" value="$(arg model)"/>
-    <arg name="map_file" value="$(arg map_file)"/>
+    <arg name="costmap_file" value="$(arg costmap_file)"/>
     <arg name="odom_topic" value="$(arg odom_topic)"/>
     <arg name="cmd_vel_topic" value="$(arg cmd_vel)"/>
   </include>
@@ -31,6 +36,8 @@
   <node name="waypoints_nav" pkg="waypoint_nav" type="waypoint_navigator_with_direction_intersection_detailed" output="screen">
     <param name="filename" value="$(arg waypoints_file)"/>
     <param name="dist_err" value="$(arg dist_err)"/>
+    <param name="max_update_rate" value="$(arg max_update_rate)"/>
+    <param name="target_loop_count" value="$(arg target_loop_count)"/>
     <param name="loop_flag" value="true"/>
   </node>
 
