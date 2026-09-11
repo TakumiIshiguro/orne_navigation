@@ -17,4 +17,54 @@
     <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
 </xacro:sensor_hokuyo>
 
+<!-- Center wide-angle camera (/camera_center).
+     Frame names match the Gazebo model in orne_gamma.urdf.xacro, so the same
+     consumers work on the real robot: unidepth_ros reads
+     camera_rgb_optical_frame and projects into base_footprint.
+
+     Parented to base_footprint, not base_link, so that the measured height
+     below means exactly what it says. base_link's origin sits at a different
+     height in the Gazebo model than it does here, so parenting to base_link
+     would make the same number mean two different things.
+
+     Measured on the real robot: the lens centre is 0.350 m above the floor,
+     0.285 m forward of the wheel axle, and the camera is mounted level
+     (no pitch).
+
+     The forward measurement is taken from the wheel axle, so it needs the
+     axle's own position in base_footprint to become an x offset here.
+     wheel_axle_x below assumes base_link (and therefore base_footprint) sits
+     at the wheel axle centre, which is what diff_drive_controller assumes
+     too: icart_mini_control.yaml gives it base_frame_id: base_link, and its
+     odometry is computed at the midpoint between the wheels. That assumption
+     is NOT verified against icart_mini_description. Check it with
+
+         rosrun tf tf_echo base_footprint left_wheel
+
+     and put the reported x here if it is not zero (for reference, the Gazebo
+     model has the axle at -0.15 and icart_middle.xacro at +0.06). -->
+<xacro:property name="wheel_axle_x" value="0.0"/>
+<xacro:property name="camera_center_x" value="${wheel_axle_x + 0.285}"/>
+
+<joint name="camera_joint" type="fixed">
+    <origin xyz="${camera_center_x} 0 0.350" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="camera_link"/>
+</joint>
+<link name="camera_link"/>
+
+<joint name="camera_rgb_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_rgb_frame"/>
+</joint>
+<link name="camera_rgb_frame"/>
+
+<joint name="camera_rgb_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <parent link="camera_rgb_frame"/>
+    <child link="camera_rgb_optical_frame"/>
+</joint>
+<link name="camera_rgb_optical_frame"/>
+
 </robot>
